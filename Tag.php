@@ -57,7 +57,7 @@ class Tag extends Widget {
     }
 
 	// Tags
-	public function renderWidget( $tags=[] ) {
+	public function renderWidget( $config = [] ) {
 
 		$htmlData	= "<ul class='tags'>";
 		 

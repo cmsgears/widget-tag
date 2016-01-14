@@ -51,7 +51,7 @@ class TagMapper extends \cmsgears\core\common\base\Widget {
 
 	// TagWidget
 
-	public function renderWidget() {
+	public function renderWidget( $config = [] ) {
 
 		$widgetHtml = $this->render( $this->template, [
 			'tags' => $this->tags,
