@@ -14,7 +14,7 @@
 	<div class="warning message"></div>
 	
 	<div class="frm-actions align align-middle">
-		<a href="#" class="btn element-medium cmt-click">Add Tags</a>	
+		<a href="#" class="btn btn-medium cmt-click">Add Tags</a>	
 	</div>
 </div>
 
