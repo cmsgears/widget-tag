@@ -6,7 +6,7 @@
 			<div class="max-area-cover spinner">
 				<div class="valign-center cmti cmti-spinner-1 spin"></div>
 			</div>
-			<i class="btn-delete cmti cmti-close-o cmt-click"></i>
+			<i class="btn-delete cmti cmti-close-c cmt-click"></i>
 		</span>
 		<span class="text">{{name}}</span>
 	</span>

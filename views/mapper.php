@@ -14,7 +14,7 @@
 	<div class="warning message"></div>
 	
 	<div class="frm-actions align align-middle">
-		<a href="#" class="btn btn-small cmt-click">ADD</a>	
+		<a href="#" class="btn element-medium cmt-click">Add Tags</a>	
 	</div>
 </div>
 
@@ -31,7 +31,7 @@
 						<div class="max-area-cover spinner">
 							<div class="valign-center cmti cmti-spinner-1 spin"></div>
 						</div>
-			 			<i class="btn-delete cmti cmti-close-o cmt-click"></i>
+			 			<i class="btn-delete cmti cmti-close-c cmt-click"></i>
 			 		</span>
 			 		<span class="text"><?= $tag->name ?></span>
 				</span>
