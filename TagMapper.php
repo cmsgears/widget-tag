@@ -43,8 +43,8 @@ class TagMapper extends \cmsgears\core\common\base\Widget {
     public function run() {
 
 		$this->tags			= TagService::getIdNameMap();
-		$this->createUrl	= Url::toRoute( $this->createUrl, true );
-		$this->deleteUrl	= Url::toRoute( $this->deleteUrl, true );
+		$this->createUrl	= $this->createUrl;
+		$this->deleteUrl	= $this->deleteUrl;
 
         return $this->renderWidget();
     }
