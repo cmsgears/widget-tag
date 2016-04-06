@@ -1,12 +1,14 @@
 <?php
 namespace cmsgears\widgets\tag;
 
+// Yii Imports
 use \Yii;
 use yii\helpers\Url;
 use yii\base\Widget;
 use yii\base\InvalidConfigException;
 
-use cmsgears\core\common\services\TagService;
+// CMG Imports
+use cmsgears\core\common\services\resources\TagService;
 
 class Tag extends Widget {
 
@@ -60,26 +62,26 @@ class Tag extends Widget {
 	public function renderWidget( $config = [] ) {
 
 		$htmlData	= "<ul class='tags'>";
-		 
+
 		if( isset( $tags ) && count( $tags ) ==0 ) {
-			
+
 			$tags	= TagService::getIdNameMap();
-			 
+
 			foreach( $tags as $tag ) {
-		 	 
+
 				$htmlData .= '<li><a href="'.Url::home().'tag/'.$tag.'">' .$tag. '</a></li>';
 			}
-		} 
-		
+		}
+
 		else {
-		 	 
+
 			foreach( $tags as $tag ) {
-			 	
+
 				$htmlData .= '<li><a href="'.Url::home().'tag/'.$tag->slug.'">' .$tag->name. '</a></li>';
-			}		
-		}	 		
-		 
-		return $htmlData .= "</ul>";			 
+			}
+		}
+
+		return $htmlData .= "</ul>";
    }
 }
 

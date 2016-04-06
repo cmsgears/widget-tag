@@ -1,11 +1,13 @@
 <?php
 namespace cmsgears\widgets\tag;
 
+// Yii Imports
 use \Yii;
 use yii\helpers\Html;
 use yii\helpers\Url;
 
-use cmsgears\core\common\services\TagService;
+// CMG Imports
+use cmsgears\core\common\services\resources\TagService;
 
 class TagMapper extends \cmsgears\core\common\base\Widget {
 
@@ -15,7 +17,7 @@ class TagMapper extends \cmsgears\core\common\base\Widget {
 
 	// The model using Tag Trait
 	public $model;
-	
+
 	public $createUrl;
 	public $deleteUrl;
 
