@@ -19,9 +19,17 @@ class TagMapper extends \cmsgears\core\common\base\Widget {
 	public $model;
 
 	public $createUrl;
+
 	public $deleteUrl;
 
+	// Disable all the rendered tags.
+	public $disabled	= false;
+
+	// Notes to help user in choosing tags.
 	public $notes		= 'Note: Specify all your tags in comma seperated values.';
+
+	// Flag to show notes
+	public $showNotes	= true;
 
 	public $template	= 'mapper';
 
@@ -55,13 +63,7 @@ class TagMapper extends \cmsgears\core\common\base\Widget {
 
 	public function renderWidget( $config = [] ) {
 
-		$widgetHtml = $this->render( $this->template, [
-			'tags' => $this->tags,
-			'model' => $this->model,
-			'createUrl' => $this->createUrl,
-			'deleteUrl' => $this->deleteUrl,
-			'notes' => $this->notes
-		]);
+		$widgetHtml = $this->render( $this->template, [ 'widget' => $this ] );
 
         return Html::tag( 'div', $widgetHtml, $this->options );
 	}
