@@ -7,7 +7,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 
 // CMG Imports
-use cmsgears\core\common\services\resources\TagService;
+use cmsgears\core\common\config\CoreGlobal;
 
 class TagMapper extends \cmsgears\core\common\base\Widget {
 
@@ -37,6 +37,8 @@ class TagMapper extends \cmsgears\core\common\base\Widget {
 
 	private $tags;
 
+	private $tagService;
+
 	// Constructor and Initialisation ------------------------------
 
 	// yii\base\Object
@@ -44,6 +46,8 @@ class TagMapper extends \cmsgears\core\common\base\Widget {
     public function init() {
 
         parent::init();
+
+		$this->tagService	= Yii::$app->factory->get( 'tagService' );
     }
 
 	// Instance Methods --------------------------------------------
@@ -52,7 +56,7 @@ class TagMapper extends \cmsgears\core\common\base\Widget {
 
     public function run() {
 
-		$this->tags			= TagService::getIdNameMap();
+		$this->tags			= $this->tagService->getIdNameMap();
 		$this->createUrl	= $this->createUrl;
 		$this->deleteUrl	= $this->deleteUrl;
 
