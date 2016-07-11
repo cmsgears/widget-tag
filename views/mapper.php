@@ -1,15 +1,15 @@
 <?php
 $tags 		= $widget->model->modelTags;
 $model		= $widget->model;
-$createUrl	= $widget->createUrl;
-$deleteUrl	= $widget->deleteUrl;
+$assignUrl	= $widget->assignUrl;
+$removeUrl	= $widget->removeUrl;
 $disabled	= $widget->disabled;
 $notes		= $widget->notes;
 $showNotes	= $widget->showNotes;
 ?>
 
 <?php if( !$disabled ) { ?>
-	<div id="request-tag" class='cmt-request' cmt-controller='tag' cmt-action='create' action="<?= $createUrl ?>" method="post">
+	<div id="request-tag" class='cmt-request' cmt-controller='tag' cmt-action='create' action="<?= $assignUrl ?>" method="post">
 		<div class="max-area-cover spinner">
 			<div class="valign-center cmti cmti-3x cmti-flexible-o spin"></div>
 		</div>
@@ -43,7 +43,7 @@ $showNotes	= $widget->showNotes;
 					</span>
 	<?php } else { ?>
 					<span class='tag'>
-				 		<span id="frm-delete-tag-<?= $tag->slug ?>" class="cmt-request" cmt-controller="tag" cmt-action="delete" action="<?= $deleteUrl ?>&tslug=<?= $tag->slug ?>" method="post">
+				 		<span id="frm-delete-tag-<?= $tag->slug ?>" class="cmt-request" cmt-controller="tag" cmt-action="delete" action="<?= $removeUrl ?>&tslug=<?= $tag->slug ?>&mtype=<?= $model->mParentType ?>" method="post">
 							<div class="max-area-cover spinner">
 								<div class="valign-center cmti cmti-spinner-1 spin"></div>
 							</div>

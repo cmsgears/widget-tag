@@ -18,9 +18,9 @@ class TagMapper extends \cmsgears\core\common\base\Widget {
 	// The model using Tag Trait
 	public $model;
 
-	public $createUrl;
+	public $assignUrl;
 
-	public $deleteUrl;
+	public $removeUrl;
 
 	// Disable all the rendered tags.
 	public $disabled	= false;
@@ -56,9 +56,7 @@ class TagMapper extends \cmsgears\core\common\base\Widget {
 
     public function run() {
 
-		$this->tags			= $this->tagService->getIdNameMap();
-		$this->createUrl	= $this->createUrl;
-		$this->deleteUrl	= $this->deleteUrl;
+		$this->tags	= $this->tagService->getIdNameMap();
 
         return $this->renderWidget();
     }

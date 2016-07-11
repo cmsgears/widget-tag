@@ -4,13 +4,12 @@ namespace cmsgears\widgets\tag;
 // Yii Imports
 use \Yii;
 use yii\helpers\Url;
-use yii\base\Widget;
 use yii\base\InvalidConfigException;
 
 // CMG Imports
 use cmsgears\core\common\services\resources\TagService;
 
-class Tag extends Widget {
+class Tag extends \cmsgears\core\common\base\Widget {
 
 	// Variables ---------------------------------------------------
 
