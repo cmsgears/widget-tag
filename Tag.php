@@ -34,28 +34,28 @@ class Tag extends \cmsgears\core\common\base\Widget {
 
 	// yii\base\Object
 
-    public function init() {
+	public function init() {
 
-        parent::init();
+		parent::init();
 
 		// Do init tasks
-    }
+	}
 
 	// Instance Methods --------------------------------------------
 
 	// yii\base\Widget
 
-    public function run() {
+	public function run() {
 
-        if( !isset( $this->parentType ) ) {
+		if( !isset( $this->parentType ) ) {
 
-            throw new InvalidConfigException( "Tag parent type is required." );
-        }
+			throw new InvalidConfigException( "Tag parent type is required." );
+		}
 
-        $tagsHtml = $this->renderWidget();
+		$tagsHtml = $this->renderWidget();
 
 		return Html::tag( 'div', $tagsHtml, $this->options );
-    }
+	}
 
 	// Tags
 	public function renderWidget( $config = [] ) {

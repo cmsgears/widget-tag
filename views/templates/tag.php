@@ -1,6 +1,6 @@
 <!-- Tag Template -->
 <script id="tagTemplate" type="text/x-handlebars-template">
- 	{{#each tags }}
+	{{#each tags }}
 	<span class='tag'>
 		<span id="frm-delete-tag-{{slug}}" class="cmt-request" cmt-controller="tag" cmt-action="delete" action="<?= $removeUrl ?>&tslug={{slug}}&mtype=<?= $model->mParentType ?>" method="post">
 			<div class="max-area-cover spinner">

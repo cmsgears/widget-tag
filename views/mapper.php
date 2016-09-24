@@ -1,5 +1,5 @@
 <?php
-$tags 		= $widget->model->modelTags;
+$tags		= $widget->model->modelTags;
 $model		= $widget->model;
 $assignUrl	= $widget->assignUrl;
 $removeUrl	= $widget->removeUrl;
@@ -39,17 +39,17 @@ $showNotes	= $widget->showNotes;
 				if( $disabled ) {
 	?>
 					<span class='tag'>
-				 		<span class="text"><?= $tag->name ?></span>
+						<span class="text"><?= $tag->name ?></span>
 					</span>
 	<?php } else { ?>
 					<span class='tag'>
-				 		<span id="frm-delete-tag-<?= $tag->slug ?>" class="cmt-request" cmt-controller="tag" cmt-action="delete" action="<?= $removeUrl ?>&tslug=<?= $tag->slug ?>&mtype=<?= $model->mParentType ?>" method="post">
+						<span id="frm-delete-tag-<?= $tag->slug ?>" class="cmt-request" cmt-controller="tag" cmt-action="delete" action="<?= $removeUrl ?>&tag-slug=<?= $tag->slug ?>" method="post">
 							<div class="max-area-cover spinner">
 								<div class="valign-center cmti cmti-spinner-1 spin"></div>
 							</div>
-				 			<i class="btn-delete cmti cmti-close-c cmt-click"></i>
-				 		</span>
-				 		<span class="text"><?= $tag->name ?></span>
+							<i class="btn-delete cmti cmti-close-c cmt-click"></i>
+						</span>
+						<span class="text"><?= $tag->name ?></span>
 					</span>
 	<?php
 				}

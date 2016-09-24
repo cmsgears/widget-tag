@@ -43,23 +43,23 @@ class TagMapper extends \cmsgears\core\common\base\Widget {
 
 	// yii\base\Object
 
-    public function init() {
+	public function init() {
 
-        parent::init();
+		parent::init();
 
 		$this->tagService	= Yii::$app->factory->get( 'tagService' );
-    }
+	}
 
 	// Instance Methods --------------------------------------------
 
 	// yii\base\Widget
 
-    public function run() {
+	public function run() {
 
 		$this->tags	= $this->tagService->getIdNameMap();
 
-        return $this->renderWidget();
-    }
+		return $this->renderWidget();
+	}
 
 	// TagWidget
 
@@ -67,7 +67,7 @@ class TagMapper extends \cmsgears\core\common\base\Widget {
 
 		$widgetHtml = $this->render( $this->template, [ 'widget' => $this ] );
 
-        return Html::tag( 'div', $widgetHtml, $this->options );
+		return Html::tag( 'div', $widgetHtml, $this->options );
 	}
 }
 
