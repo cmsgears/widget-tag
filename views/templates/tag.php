@@ -2,7 +2,7 @@
 <script id="tagTemplate" type="text/x-handlebars-template">
 	{{#each tags }}
 	<span class='tag'>
-		<span id="frm-delete-tag-{{slug}}" class="cmt-request" cmt-controller="tag" cmt-action="delete" action="<?= $removeUrl ?>&tslug={{slug}}&mtype=<?= $model->mParentType ?>" method="post">
+		<span id="frm-delete-tag-{{slug}}" class="cmt-request" cmt-controller="tag" cmt-action="delete" action="<?= $removeUrl ?>&tag-slug={{slug}}" method="post">
 			<div class="max-area-cover spinner">
 				<div class="valign-center cmti cmti-spinner-1 spin"></div>
 			</div>
