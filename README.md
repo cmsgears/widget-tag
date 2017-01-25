@@ -8,4 +8,5 @@ Description - The Tag widget for CMSGears.
 
 Highlighted Features
 =========================================
-1. It provide tagging for site users.
+
+1. It provide tagging feature to tag models using tag trait.
