@@ -26,7 +26,7 @@ class TagMapper extends \cmsgears\core\common\base\Widget {
 	public $disabled	= false;
 
 	// Notes to help user in choosing tags.
-	public $notes		= 'Note: Specify all your tags in comma seperated values.';
+	public $notes		= '<b>Notes</b>: Specify all your tags in comma seperated values.';
 
 	// Flag to show notes
 	public $showNotes	= true;
@@ -70,5 +70,3 @@ class TagMapper extends \cmsgears\core\common\base\Widget {
 		return Html::tag( 'div', $widgetHtml, $this->options );
 	}
 }
-
-?>
