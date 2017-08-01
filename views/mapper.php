@@ -1,62 +1,55 @@
 <?php
-$tags		= $widget->model->modelTags;
 $model		= $widget->model;
-$assignUrl	= $widget->assignUrl;
-$removeUrl	= $widget->removeUrl;
 $disabled	= $widget->disabled;
 $notes		= $widget->notes;
 $showNotes	= $widget->showNotes;
+
+$app			= $widget->app;
+$controller		= $widget->controller;
+
+$mapAction		= $widget->mapAction;
+$mapActionUrl	= $widget->mapActionUrl;
+
+$deleteAction		= $widget->deleteAction;
+$deleteActionUrl	= $widget->deleteActionUrl;
+
+$tags	= $model->getTagIdNameMap( true );
 ?>
-
-<?php if( !$disabled ) { ?>
-	<div cmt-app="main" cmt-controller="tag" cmt-action="create" action="<?= $assignUrl ?>">
-		<div class="max-area-cover spinner">
-			<div class="valign-center cmti cmti-3x cmti-flexible-o spin"></div>
-		</div>
-
-		<textarea name="tags" placeholder="Specify your tags in comma seperated values"></textarea>
-
-		<?php if( $showNotes ) { ?>
-			<div class="note"><?= $notes ?></div>
-		<?php } ?>
-
-		<div class="warning message"></div>
-
-		<div class="frm-actions align align-center">
-			<a href="#" class="btn btn-medium cmt-click">Add Tags</a>
-		</div>
+<div class="mapper mapper-submit mapper-submit-tags">
+	<?php if( !$disabled ) { ?>
+	<div class="frm-field-button" cmt-app="<?= $app ?>" cmt-controller="<?= $controller ?>" cmt-action="<?= $mapAction ?>" action="<?= $mapActionUrl ?>">
+		<input type="text" name="tags" />
+		<span class="btn cmt-click">Add</span>
 	</div>
-<?php } ?>
-
-<div class="filler-height"></div>
-<div class="wrap-tags">
-	<?php
-		foreach ( $tags as $modelTag ) {
-
-			if( $modelTag->active ) {
-
-				$tag	= $modelTag->tag;
-
-				if( $disabled ) {
-	?>
-					<span class='tag'>
-						<span class="text"><?= $tag->name ?></span>
-					</span>
+	<div class="filler-height"></div>
+	<div class="mapper-items">
+	<?php foreach ( $tags as $key => $value ) { ?>
+		<div class="mapper-item" cmt-app="<?= $app ?>" cmt-controller="<?= $controller ?>" cmt-action="<?= $deleteAction ?>" action="<?= $deleteActionUrl ?>">
+			<span class="spinner hidden-easy">
+				<span class="cmti cmti-spinner-1 spin"></span>
+			</span>
+			<span class="mapper-item-remove btn-icon-o"><i class="icon fa fa-close cmt-click"></i></span>
+			<span class="name"><?= $value ?></span>
+			<input type="hidden" name="tagId" value="<?= $key ?>" />
+		</div>
+	<?php } ?>
+	</div>
 	<?php } else { ?>
-					<span class='tag'>
-						<span class="text"><?= $tag->name ?></span>
-						<span id="frm-delete-tag-<?= $tag->slug ?>" cmt-app="main" cmt-controller="tag" cmt-action="delete" action="<?= $removeUrl ?>&tag-slug=<?= $tag->slug ?>">
-							<div class="max-area-cover spinner">
-								<div class="valign-center cmti cmti-spinner-1 spin"></div>
-							</div>
-							<i class="btn-delete cmti cmti-close-c cmt-click"></i>
-						</span>
-					</span>
-	<?php
-				}
-			}
-		}
-	?>
+	<div class="mapper-items">
+	<?php foreach ( $tags as $key => $value ) { ?>
+		<div class="mapper-item">
+			<span class="name"><?= $value ?></span>
+			<input type="hidden" name="tagId" value="<?= $key ?>" />
+		</div>
+	<?php } ?>
+	</div>
+	<?php } ?>
 </div>
+
+<div class="clear filler-height"></div>
+
+<?php if( !$disabled && $showNotes ) { ?>
+	<div class="note"><?= $notes ?></div>
+<?php } ?>
 
 <?php include 'templates/tag.php'; ?>

@@ -2,7 +2,6 @@
 namespace cmsgears\widgets\tag;
 
 // Yii Imports
-use \Yii;
 use yii\helpers\Url;
 use yii\base\InvalidConfigException;
 
@@ -83,5 +82,3 @@ class Tag extends \cmsgears\core\common\base\Widget {
 		return $htmlData .= "</ul>";
    }
 }
-
-?>

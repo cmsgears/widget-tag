@@ -2,12 +2,8 @@
 namespace cmsgears\widgets\tag;
 
 // Yii Imports
-use \Yii;
+use Yii;
 use yii\helpers\Html;
-use yii\helpers\Url;
-
-// CMG Imports
-use cmsgears\core\common\config\CoreGlobal;
 
 class TagMapper extends \cmsgears\core\common\base\Widget {
 
@@ -15,12 +11,10 @@ class TagMapper extends \cmsgears\core\common\base\Widget {
 
 	// Public Variables --------------------
 
+	public $template	= 'mapper';
+
 	// The model using Tag Trait
 	public $model;
-
-	public $assignUrl;
-
-	public $removeUrl;
 
 	// Disable all the rendered tags.
 	public $disabled	= false;
@@ -31,7 +25,23 @@ class TagMapper extends \cmsgears\core\common\base\Widget {
 	// Flag to show notes
 	public $showNotes	= true;
 
-	public $template	= 'mapper';
+	// Application
+	public $app				= 'main';
+
+	// Controller where mapping request need to be triggered
+	public $controller		= 'tag';
+
+	// Controller action to handle the mapping request
+	public $mapAction		= 'mapModelTag';
+
+	// Explicit URL to handle the controller mapping action request
+	public $mapActionUrl	= null;
+
+	// Controller action to handle the delete request
+	public $deleteAction	= 'deleteModelTag';
+
+	// Explicit URL to handle the controller delete action request
+	public $deleteActionUrl	= null;
 
 	// Private Variables -------------------
 

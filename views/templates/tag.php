@@ -1,14 +1,12 @@
-<!-- Tag Template -->
-<script id="tagTemplate" type="text/x-handlebars-template">
+<script id="tagMapperTemplate" type="text/x-handlebars-template">
 	{{#each tags }}
-	<span class='tag'>
-		<span class="text">{{name}}</span>
-		<span id="frm-delete-tag-{{slug}}" cmt-app="main" cmt-controller="tag" cmt-action="delete" action="<?= $removeUrl ?>&tag-slug={{slug}}" method="post">
-			<div class="max-area-cover spinner">
-				<div class="valign-center cmti cmti-spinner-1 spin"></div>
-			</div>
-			<i class="btn-delete cmti cmti-close-c cmt-click"></i>
+	<div class="mapper-item" cmt-app="<?= $app ?>" cmt-controller="<?= $controller ?>" cmt-action="<?= $deleteAction ?>" action="<?= $deleteActionUrl ?>">
+		<span class="spinner hidden-easy">
+			<span class="cmti cmti-spinner-1 spin"></span>
 		</span>
-	</span>
+		<span class="mapper-item-remove btn-icon-o"><i class="icon fa fa-close cmt-click"></i></span>
+		<span class="name">{{name}}</span>
+		<input type="hidden" name="tagId" value="{{id}}" />
+	</div>
 	{{/each}}
 </script>
