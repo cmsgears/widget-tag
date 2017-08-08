@@ -13,7 +13,7 @@ $mapActionUrl	= $widget->mapActionUrl;
 $deleteAction		= $widget->deleteAction;
 $deleteActionUrl	= $widget->deleteActionUrl;
 
-$tags	= $model->getTagIdNameMap( true );
+$modelTags = $model->activeModelTags;
 ?>
 <div class="mapper mapper-submit mapper-submit-tags">
 	<?php if( !$disabled ) { ?>
@@ -23,23 +23,31 @@ $tags	= $model->getTagIdNameMap( true );
 	</div>
 	<div class="filler-height"></div>
 	<div class="mapper-items">
-	<?php foreach ( $tags as $key => $value ) { ?>
-		<div class="mapper-item" cmt-app="<?= $app ?>" cmt-controller="<?= $controller ?>" cmt-action="<?= $deleteAction ?>" action="<?= $deleteActionUrl ?>">
+	<?php
+		foreach ( $modelTags as $modelTag ) {
+
+			$tag		= $modelTag->tag;
+			$deleteUrl	= "$deleteActionUrl&cid=$modelTag->id";
+	?>
+		<div class="mapper-item" cmt-app="<?= $app ?>" cmt-controller="<?= $controller ?>" cmt-action="<?= $deleteAction ?>" action="<?= $deleteUrl ?>">
 			<span class="spinner hidden-easy">
 				<span class="cmti cmti-spinner-1 spin"></span>
 			</span>
 			<span class="mapper-item-remove btn-icon-o"><i class="icon fa fa-close cmt-click"></i></span>
-			<span class="name"><?= $value ?></span>
-			<input type="hidden" name="tagId" value="<?= $key ?>" />
+			<span class="name"><?= $tag->name ?></span>
+			<input class="cid" type="hidden" name="cid" value="<?= $modelTag->id ?>" />
 		</div>
 	<?php } ?>
 	</div>
 	<?php } else { ?>
 	<div class="mapper-items">
-	<?php foreach ( $tags as $key => $value ) { ?>
+	<?php
+		foreach ( $modelTags as $modelTag ) {
+
+			$tag	= $modelTag->tag;
+	?>
 		<div class="mapper-item">
-			<span class="name"><?= $value ?></span>
-			<input type="hidden" name="tagId" value="<?= $key ?>" />
+			<span class="name"><?= $tag->name ?></span>
 		</div>
 	<?php } ?>
 	</div>
