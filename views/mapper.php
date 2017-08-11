@@ -26,7 +26,7 @@ $modelTags = $model->activeModelTags;
 	<?php
 		foreach ( $modelTags as $modelTag ) {
 
-			$tag		= $modelTag->tag;
+			$tag		= $modelTag->model;
 			$deleteUrl	= "$deleteActionUrl&cid=$modelTag->id";
 	?>
 		<div class="mapper-item" cmt-app="<?= $app ?>" cmt-controller="<?= $controller ?>" cmt-action="<?= $deleteAction ?>" action="<?= $deleteUrl ?>">
@@ -44,7 +44,7 @@ $modelTags = $model->activeModelTags;
 	<?php
 		foreach ( $modelTags as $modelTag ) {
 
-			$tag	= $modelTag->tag;
+			$tag	= $modelTag->model;
 	?>
 		<div class="mapper-item">
 			<span class="name"><?= $tag->name ?></span>
