@@ -33,7 +33,7 @@ $modelTags = $model->activeModelTags;
 			<span class="spinner hidden-easy">
 				<span class="cmti cmti-spinner-1 spin"></span>
 			</span>
-			<span class="mapper-item-remove btn-icon-o"><i class="icon fa fa-close cmt-click"></i></span>
+			<span class="mapper-item-remove btn-icon-o"><i class="icon cmti cmti-close cmt-click"></i></span>
 			<span class="name"><?= $tag->name ?></span>
 			<input class="cid" type="hidden" name="cid" value="<?= $modelTag->id ?>" />
 		</div>
