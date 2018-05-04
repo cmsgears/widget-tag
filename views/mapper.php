@@ -4,8 +4,8 @@ $disabled	= $widget->disabled;
 $notes		= $widget->notes;
 $showNotes	= $widget->showNotes;
 
-$app			= $widget->app;
-$controller		= $widget->controller;
+$app		= $widget->app;
+$controller	= $widget->controller;
 
 $mapAction		= $widget->mapAction;
 $mapActionUrl	= $widget->mapActionUrl;
@@ -15,19 +15,20 @@ $deleteActionUrl	= $widget->deleteActionUrl;
 
 $modelTags = $model->activeModelTags;
 ?>
-<div class="mapper mapper-submit mapper-submit-tags">
+<div class="mapper mapper-submit mapper-submit-items" template="tagMapperTemplate">
 	<?php if( !$disabled ) { ?>
 	<div class="frm-field-button" cmt-app="<?= $app ?>" cmt-controller="<?= $controller ?>" cmt-action="<?= $mapAction ?>" action="<?= $mapActionUrl ?>">
-		<input type="text" name="tags" />
+		<input type="text" name="list" />
 		<span class="btn cmt-click">Add</span>
 	</div>
 	<div class="filler-height"></div>
 	<div class="mapper-items">
 	<?php
-		foreach ( $modelTags as $modelTag ) {
+		foreach( $modelTags as $modelTag ) {
 
-			$tag		= $modelTag->model;
-			$deleteUrl	= "$deleteActionUrl&cid=$modelTag->id";
+			$tag = $modelTag->model;
+
+			$deleteUrl = "$deleteActionUrl&cid=$modelTag->id";
 	?>
 		<div class="mapper-item" cmt-app="<?= $app ?>" cmt-controller="<?= $controller ?>" cmt-action="<?= $deleteAction ?>" action="<?= $deleteUrl ?>">
 			<span class="spinner hidden-easy">
@@ -42,9 +43,9 @@ $modelTags = $model->activeModelTags;
 	<?php } else { ?>
 	<div class="mapper-items">
 	<?php
-		foreach ( $modelTags as $modelTag ) {
+		foreach( $modelTags as $modelTag ) {
 
-			$tag	= $modelTag->model;
+			$tag = $modelTag->model;
 	?>
 		<div class="mapper-item">
 			<span class="name"><?= $tag->name ?></span>
