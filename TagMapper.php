@@ -1,15 +1,41 @@
 <?php
+/**
+ * This file is part of CMSGears Framework. Please view License file distributed
+ * with the source code for license details.
+ *
+ * @link https://www.cmsgears.org/
+ * @copyright Copyright (c) 2015 VulpineCode Technologies Pvt. Ltd.
+ */
+
 namespace cmsgears\widgets\tag;
 
 // Yii Imports
 use Yii;
 use yii\helpers\Html;
 
-class TagMapper extends \cmsgears\core\common\base\Widget {
+// CMG Imports
+use cmsgears\core\common\base\Widget;
+
+/**
+ * TagMapper maps tags to models.
+ *
+ * @since 1.0.0
+ */
+class TagMapper extends Widget {
 
 	// Variables ---------------------------------------------------
 
-	// Public Variables --------------------
+	// Globals -------------------------------
+
+	// Constants --------------
+
+	// Public -----------------
+
+	// Protected --------------
+
+	// Variables -----------------------------
+
+	// Public -----------------
 
 	public $template	= 'mapper';
 
@@ -26,43 +52,49 @@ class TagMapper extends \cmsgears\core\common\base\Widget {
 	public $showNotes	= true;
 
 	// Application
-	public $app				= 'main';
+	public $app				= 'mapper';
 
 	// Controller where mapping request need to be triggered
-	public $controller		= 'tag';
+	public $controller		= 'csv';
 
 	// Controller action to handle the mapping request
-	public $mapAction		= 'mapModelTag';
+	public $mapAction		= 'mapItem';
 
 	// Explicit URL to handle the controller mapping action request
 	public $mapActionUrl	= null;
 
 	// Controller action to handle the delete request
-	public $deleteAction	= 'deleteModelTag';
+	public $deleteAction	= 'deleteItem';
 
 	// Explicit URL to handle the controller delete action request
 	public $deleteActionUrl	= null;
 
-	// Private Variables -------------------
+	// Protected --------------
+
+	// Private ----------------
 
 	private $tags;
 
 	private $tagService;
 
-	// Constructor and Initialisation ------------------------------
+	// Traits ------------------------------------------------------
 
-	// yii\base\Object
+	// Constructor and Initialisation ------------------------------
 
 	public function init() {
 
 		parent::init();
 
-		$this->tagService	= Yii::$app->factory->get( 'tagService' );
+		$this->tagService = Yii::$app->factory->get( 'tagService' );
 	}
 
-	// Instance Methods --------------------------------------------
+	// Instance methods --------------------------------------------
 
-	// yii\base\Widget
+	// Yii interfaces ------------------------
+
+	// Yii parent classes --------------------
+
+	// yii\base\Widget --------
 
 	public function run() {
 
@@ -71,7 +103,11 @@ class TagMapper extends \cmsgears\core\common\base\Widget {
 		return $this->renderWidget();
 	}
 
-	// TagWidget
+	// CMG interfaces ------------------------
+
+	// CMG parent classes --------------------
+
+	// TagMapper -----------------------------
 
 	public function renderWidget( $config = [] ) {
 
@@ -79,4 +115,5 @@ class TagMapper extends \cmsgears\core\common\base\Widget {
 
 		return Html::tag( 'div', $widgetHtml, $this->options );
 	}
+
 }
