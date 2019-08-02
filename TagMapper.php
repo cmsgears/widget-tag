@@ -13,15 +13,12 @@ namespace cmsgears\widgets\tag;
 use Yii;
 use yii\helpers\Html;
 
-// CMG Imports
-use cmsgears\core\common\base\Widget;
-
 /**
  * TagMapper maps tags to models.
  *
  * @since 1.0.0
  */
-class TagMapper extends Widget {
+class TagMapper extends \cmsgears\core\common\base\Widget {
 
 	// Variables ---------------------------------------------------
 
