@@ -48,6 +48,8 @@ class TagMapper extends \cmsgears\core\common\base\Widget {
 	// Flag to show notes
 	public $showNotes = true;
 
+	public $mapperClass = 'mapper mapper-inline mapper-submit mapper-submit-items';
+
 	// Application
 	public $app = 'core';
 

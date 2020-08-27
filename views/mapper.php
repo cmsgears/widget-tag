@@ -1,8 +1,11 @@
 <?php
 $model		= $widget->model;
 $disabled	= $widget->disabled;
+
 $notes		= $widget->notes;
 $showNotes	= $widget->showNotes;
+
+$mapperClass = $widget->mapperClass;
 
 $app		= $widget->app;
 $controller	= $widget->controller;
@@ -15,7 +18,7 @@ $deleteActionUrl	= $widget->deleteActionUrl;
 
 $modelTags = $model->activeModelTags;
 ?>
-<div class="mapper mapper-submit mapper-submit-items" template="tagMapperTemplate">
+<div class="<?= $mapperClass ?>" template="tagMapperTemplate">
 	<?php if( !$disabled ) { ?>
 	<div class="frm-field-button" cmt-app="<?= $app ?>" cmt-controller="<?= $controller ?>" cmt-action="<?= $mapAction ?>" action="<?= $mapActionUrl ?>">
 		<input type="text" name="list" placeholder="Tags CSV" />
