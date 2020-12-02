@@ -39,6 +39,10 @@ class TagMapper extends \cmsgears\core\common\base\Widget {
 	// The model using Tag Trait
 	public $model;
 
+	// Required by CMS and dependent modules
+	public $widgetSlug;
+	public $templateId;
+
 	// Disable all the rendered tags.
 	public $disabled = false;
 

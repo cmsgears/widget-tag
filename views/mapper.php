@@ -21,6 +21,8 @@ $modelTags = $model->activeModelTags;
 <div class="<?= $mapperClass ?>" template="tagMapperTemplate">
 	<?php if( !$disabled ) { ?>
 	<div class="frm-field-button" cmt-app="<?= $app ?>" cmt-controller="<?= $controller ?>" cmt-action="<?= $mapAction ?>" action="<?= $mapActionUrl ?>">
+		<input type="hidden" name="widget-slug" value="<?= $widget->widgetSlug ?>" />
+		<input type="hidden" name="template-id" value="<?= $widget->templateId ?>" />
 		<input type="text" name="list" placeholder="Tags CSV" />
 		<span class="btn cmt-click">Add</span>
 	</div>
