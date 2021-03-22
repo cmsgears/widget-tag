@@ -13,15 +13,12 @@ namespace cmsgears\widgets\tag;
 use yii\helpers\Url;
 use yii\base\InvalidConfigException;
 
-// CMG Imports
-use cmsgears\core\common\base\Widget;
-
 /**
  * TagList widgets shows the tags based on widget options.
  *
  * @since 1.0.0
  */
-class TagList extends Widget {
+class TagList extends \cmsgears\core\common\base\Widget {
 
 	// TODO: Fix the query filters based on type, parentType and parentId
 

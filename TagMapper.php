@@ -13,15 +13,12 @@ namespace cmsgears\widgets\tag;
 use Yii;
 use yii\helpers\Html;
 
-// CMG Imports
-use cmsgears\core\common\base\Widget;
-
 /**
  * TagMapper maps tags to models.
  *
  * @since 1.0.0
  */
-class TagMapper extends Widget {
+class TagMapper extends \cmsgears\core\common\base\Widget {
 
 	// Variables ---------------------------------------------------
 
@@ -37,34 +34,40 @@ class TagMapper extends Widget {
 
 	// Public -----------------
 
-	public $template	= 'mapper';
+	public $template = 'mapper';
 
 	// The model using Tag Trait
 	public $model;
 
+	// Required by CMS and dependent modules
+	public $widgetSlug;
+	public $templateId;
+
 	// Disable all the rendered tags.
-	public $disabled	= false;
+	public $disabled = false;
 
 	// Notes to help user in choosing tags.
-	public $notes		= '<b>Notes</b>: Specify all your tags in comma seperated values.';
+	public $notes = '<b>Notes</b>: Specify all your tags in comma seperated values.';
 
 	// Flag to show notes
-	public $showNotes	= true;
+	public $showNotes = true;
+
+	public $mapperClass = 'mapper mapper-layout mapper-layout-inline mapper-submit mapper-submit-items';
 
 	// Application
-	public $app				= 'mapper';
+	public $app = 'core';
 
 	// Controller where mapping request need to be triggered
-	public $controller		= 'csv';
+	public $controller = 'csvMapper';
 
 	// Controller action to handle the mapping request
-	public $mapAction		= 'mapItem';
+	public $mapAction = 'mapItem';
 
 	// Explicit URL to handle the controller mapping action request
-	public $mapActionUrl	= null;
+	public $mapActionUrl = null;
 
 	// Controller action to handle the delete request
-	public $deleteAction	= 'deleteItem';
+	public $deleteAction = 'deleteItem';
 
 	// Explicit URL to handle the controller delete action request
 	public $deleteActionUrl	= null;
